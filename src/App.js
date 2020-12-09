@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <br/>
-      <div className='container d-flex flex-column justify-content-center col-12 col-md-8 col-lg-6 col-xl-4'>
+      <div className='container d-flex flex-column justify-content-center col-12 col-md-8 col-lg-8 col-xl-5'>
         <TodoInput todos={todos} updateTodos={updateTodos}/>
         <TodosList todos={todos} updateTodos={updateTodos}/>
       </div>

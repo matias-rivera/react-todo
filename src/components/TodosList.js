@@ -23,8 +23,8 @@ const TodosList = ({todos, updateTodos}) => {
 
     return ( 
         <ul className='list-group'>
-            {todos.map((item,index) => (
-              <Todo key={item.id + toString(index)} todoFromProps={item} editTodo={editTodo} deleteTodo={deleteTodo}/>
+            {todos.map(item => (
+              <Todo key={item.id} todoFromProps={item} editTodo={editTodo} deleteTodo={deleteTodo}/>
             ))}
         </ul>
      );

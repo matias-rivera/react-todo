@@ -17,7 +17,7 @@ const Todo = ({todoFromProps, editTodo, deleteTodo}) => {
     }
 
     const getDate = () => {
-        const date = JSON.stringify(todo.id)
+        const date = JSON.stringify(todo.date)
 
         return date.slice(6,11)
     }
