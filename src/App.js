@@ -1,23 +1,35 @@
-import logo from './logo.svg';
+import React,{ useState, useEffect } from 'react';
 import './App.css';
+import TodoInput from './components/TodoInput';
+import TodosList from './components/TodosList';
+
 
 function App() {
+  
+  
+  const [todos, setTodos] = useState([])
+
+
+  useEffect(() => {
+    if(localStorage.getItem('todos')){
+      setTodos(JSON.parse(localStorage.getItem('todos')))
+    }
+  },[])
+
+  const updateTodos = (todos) => {
+    localStorage.setItem('todos',JSON.stringify(todos))
+    setTodos(todos)
+  }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <br/>
+      <div className='container d-flex flex-column justify-content-center col-12 col-md-8 col-lg-6 col-xl-4'>
+        <TodoInput todos={todos} updateTodos={updateTodos}/>
+        <TodosList todos={todos} updateTodos={updateTodos}/>
+      </div>
+
     </div>
   );
 }
